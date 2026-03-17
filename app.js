@@ -131,6 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        if (key === 'call') {
+            window.location.href = 'tel:+44000000000';
+        }
+        
         // Add physical press effect (visual only as CSS handles click state)
         console.log(`Key pressed: ${key}`);
         renderScreen();
