@@ -316,8 +316,8 @@ nav {
 /* --- Functional Nokia Handset --- */
 .nokia-handset {
     background: radial-gradient(circle at 50% -20%, #20315a, #141d33);
-    width: 380px;
-    padding: 20px 25px 45px;
+    width: 420px;
+    padding: 25px 30px 50px;
     border-radius: 40px 40px 80px 80px;
     border: 3px solid #050810;
     box-shadow: 
@@ -360,7 +360,7 @@ nav {
     background-color: var(--nokia-bg);
     color: var(--nokia-text);
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/3.8;
     padding: 12px;
     position: relative;
     overflow: hidden;
@@ -808,31 +808,53 @@ nav {
 
 /* Responsive Hacks */
 @media (max-width: 1024px) {
-    .hero-layers {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 60px;
-    }
-    
-    .hero-label {
-        display: flex;
+    .hero-three-column {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding-top: 50px;
     }
     
-    .aggressive-title { font-size: 4.5rem; }
+    .hero-phone-side {
+        width: 100%;
+        order: 1; /* Phones on top/bottom or just show them decently */
+    }
     
-    .nokia-main-wrapper { height: auto; padding: 100px 0; }
-    .phone-1, .phone-2 { display: none; }
+    .hero-center-hub {
+        order: 0;
+        margin-bottom: 20px;
+    }
+    
+    .hero-phone-side.left { perspective: none; }
+    .hero-phone-side.right { perspective: none; }
+    
+    .pure-phone {
+        height: 350px;
+    }
+
+    .nokia-handset {
+        width: 95vw;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .aggressive-title { font-size: clamp(3rem, 12vw, 5rem); }
 }
 
 @media (max-width: 768px) {
-    .mobile-stack, .mobile-stack.reverse {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        gap: 40px;
+    .hero-three-column {
+        padding-top: 20px;
     }
     
-    .aggressive-title { font-size: 3.5rem; letter-spacing: -1px; }
+    .hero-phone-side img {
+        height: 280px;
+    }
+
+    .mobile-stack {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .aggressive-title { font-size: 3rem; }
 }
