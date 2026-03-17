@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KA THE WIZARD | STUDIO TRAPPIN.</title>
+    <meta name="description" content="Urban music studio for raw production, mixing, and mastering. Studio Trappin - London. No talk, just sound.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&family=VT323&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RecordingStudio",
+      "name": "KA THE WIZARD",
+      "description": "Raw, urban music studio in London.",
+      "url": "https://kathewizard.studio"
+    }
+    </script>
+</head>
+<body class="gritty">
+
+    <!-- Global Overlays -->
+    <div class="overlay-texture"></div>
+    <div class="noise"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="logo">KA THE WIZARD</div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#hub">SYSTEM</a>
+            <a href="#booking" class="btn-gritty">LOCK IN</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-raw" id="home">
+            <div class="hero-three-column container">
+                <!-- Left: Blue Phone -->
+                <div class="hero-phone-side left" data-animate>
+                    <img src="assets/images/nokia-blue.png" alt="Nokia Blue" class="pure-phone">
+                </div>
+
+                <!-- Center: Strong Text -->
+                <div class="hero-center-hub" data-animate>
+                    <div class="hero-label">
+                        <span class="badge">EST TW3</span>
+                        <h2 class="aggressive-title">COME BUILD.<br>COME RECORD.</h2>
+                        <a href="#hub" class="btn-aggressive">ENTER HUB</a>
+                    </div>
+                </div>
+
+                <!-- Right: Black Phone -->
+                <div class="hero-phone-side right" data-animate>
+                    <img src="assets/images/nokia-black.png" alt="Nokia Black" class="pure-phone">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive System Hub -->
+        <section id="hub" class="section bg-darker">
+            <div class="container system-hub-container" data-animate>
+                <div class="section-label-center">
+                    <h2 class="aggressive-title small-title">STUDIO_OS</h2>
+                    <p class="gritty-muted">INTERACT WITH THE SYSTEM TO BROWSE SERVICES AND RATES.</p>
+                </div>
+
+                <!-- NEW INTERACTIVE HANDSET (Refined classic look) -->
+                <div class="nokia-handset" id="hero-phone">
+                    <div class="handset-top-bar">
+                        <span class="brand-text">N O K I A</span>
+                        <span class="signal-bars">📶</span>
+                    </div>
+                    
+                    <div class="screen-container">
+                        <div class="nokia-screen" id="hero-screen">
+                            <!-- JS Inject Content Here -->
+                        </div>
+                    </div>
+
+                    <div class="controls-layout">
+                        <!-- Precise D-Pad -->
+                        <div class="d-pad-wrapper">
+                            <div class="phys-btn d-btn btn-up" data-key="up">▲</div>
+                            <div class="d-pad-mid">
+                                <div class="phys-btn d-btn btn-left" data-key="left">◀</div>
+                                <div class="phys-btn d-btn btn-ok" data-key="ok">OK</div>
+                                <div class="phys-btn d-btn btn-right" data-key="right">▶</div>
+                            </div>
+                            <div class="phys-btn d-btn btn-down" data-key="down">▼</div>
+                        </div>
+
+                        <!-- Action Row -->
+                        <div class="action-row">
+                            <div class="phys-btn act-btn btn-select" data-key="select">SELECT</div>
+                            <div class="call-btn-circle" data-key="call">📞</div>
+                            <div class="phys-btn act-btn btn-back" data-key="back">BACK</div>
+                        </div>
+                    </div>
+
+                    <div class="keypad">
+                        <div class="phys-btn key-btn" data-key="1">1<span>. . .</span></div>
+                        <div class="phys-btn key-btn" data-key="2">2<span>ABC</span></div>
+                        <div class="phys-btn key-btn" data-key="3">3<span>DEF</span></div>
+                        <div class="phys-btn key-btn" data-key="4">4<span>GHI</span></div>
+                        <div class="phys-btn key-btn" data-key="5">5<span>JKL</span></div>
+                        <div class="phys-btn key-btn" data-key="6">6<span>MNO</span></div>
+                        <div class="phys-btn key-btn" data-key="7">7<span>PQRS</span></div>
+                        <div class="phys-btn key-btn" data-key="8">8<span>TUV</span></div>
+                        <div class="phys-btn key-btn" data-key="9">9<span>WXYZ</span></div>
+                        <div class="phys-btn key-btn" data-key="*">*</div>
+                        <div class="phys-btn key-btn" data-key="0">0<span>+</span></div>
+                        <div class="phys-btn key-btn clr" data-key="clr">CLR</div>
+                    </div>
+
+                    <div class="handset-footer">STUDIO TRAPPIN</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All content now moved into the interactive handset -->
+
+
+        <!-- Booking Section (IMPROVED VERSION) -->
+        <section id="booking" class="booking-section section">
+            <div class="container text-center" data-animate>
+                <div class="glitch-wrapper">
+                    <h2 class="aggressive-title jumbo">STUDIO OPEN. STEP IN.</h2>
+                </div>
+                
+                <div class="booking-nokia-wrapper">
+                    <!-- Branded Nokia Frame -->
+                    <div class="nokia-handset-frame">
+                        <div class="nokia-branding-top">NOKIA</div>
+                        <div class="nokia-screen call-screen pulse-glow">
+                            <div class="screen-header">
+                                <span>DIALING...</span>
+                            </div>
+                            <div class="screen-body">
+                                <div class="avatar">🧙‍♂️</div>
+                                <h2 class="pixel-text mini-pixel">KA_WIZARD</h2>
+                                <p class="pixel-text-sub">STUDIO_HUB</p>
+                            </div>
+                            <div class="screen-footer">
+                                <span class="green-text">ANSWER</span>
+                                <span class="red-text">REJECT</span>
+                            </div>
+                        </div>
+                        <div class="nokia-buttons-physical">
+                            <div class="phys-btn"></div>
+                            <div class="phys-btn main"></div>
+                            <div class="phys-btn"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="aggro-cta-group">
+                        <a href="https://wa.me/yournumber" class="aggro-pixel-btn whatsapp">SEND_WA_MESSAGE</a>
+                        <a href="tel:+44000000000" class="aggro-pixel-btn call">INIT_DIRECT_CALL</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer" class="footer-gritty section">
+            <div class="container footer-stack">
+                <div class="footer-row-top">
+                    <div class="brand">
+                        <h3 class="aggressive-title mini">KA THE WIZARD</h3>
+                        <p class="gritty-muted">LONDON SOUND_LANDSCAPE.</p>
+                    </div>
+                    <div class="socials">
+                        <a href="#">INSTAGRAM</a>
+                        <a href="#">TIKTOK</a>
+                        <a href="#">YOUTUBE</a>
+                    </div>
+                </div>
+                <div class="footer-row-bottom">
+                    <div class="contact-details">
+                        <span>INFO@KATHEWIZARD.CO.UK</span>
+                        <span>|</span>
+                        <span>+44 7000 000 000</span>
+                    </div>
+                    <div class="legal">
+                        &copy; 2026 KA_THE_WIZARD. SYSTEM_ v2.0
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

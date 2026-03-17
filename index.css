@@ -1,0 +1,838 @@
+:root {
+    --bg-deep: #050810;
+    --bg-darker: #020408;
+    --nokia-green: #94af13;
+    --nokia-bg: #acc61a;
+    --nokia-text: #1d2506;
+    --accent-red: #ff3e3e;
+    --text-primary: #f0f4f8;
+    --text-muted: #8fa3b5;
+    --font-modern: 'Space Grotesk', sans-serif;
+    --font-pixel: 'VT323', monospace;
+    --font-mono: 'Space Mono', monospace;
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: crosshair;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body.gritty {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-modern);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 50% 50%, #1a2a4a, var(--bg-deep)),
+        url('https://www.transparenttextures.com/patterns/black-linen.png');
+    background-blend-mode: multiply;
+}
+
+/* Texture Overlays */
+.overlay-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(0,0,0,0.8));
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.noise::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/otis-redding.png');
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 998;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    background: rgba(5, 8, 16, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: var(--font-mono);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--nokia-green);
+    text-shadow: 0 0 10px var(--nokia-green);
+}
+
+.btn-gritty {
+    border: 1px solid var(--nokia-green);
+    color: var(--nokia-green) !important;
+    padding: 5px 15px;
+    background: rgba(148, 175, 19, 0.1);
+}
+
+/* Sections & Layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.section {
+    padding: 120px 0;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.bg-darker {
+    background-color: var(--bg-darker);
+}
+
+.mobile-stack {
+    display: flex;
+    align-items: start;
+    gap: 60px;
+}
+
+.gap-large { gap: 100px; }
+.gap-none { gap: 0; }
+
+.mobile-stack.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Typography Raw */
+.aggressive-title {
+    font-family: var(--font-modern);
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    line-height: 0.8;
+    font-weight: 900;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.aggressive-title.small-title {
+    font-size: 4rem;
+}
+
+.aggressive-title.jumbo {
+    font-size: clamp(3rem, 15vw, 10rem);
+    margin-bottom: 40px;
+}
+
+.aggressive-title.mini {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.gritty-muted {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    max-width: 400px;
+    text-transform: uppercase;
+}
+
+.center-text { text-align: center; }
+
+/* Hero Section Layers */
+.hero-raw {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    overflow: hidden;
+}
+
+.hero-three-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 100px 0;
+}
+
+.hero-phone-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-phone-side.left { perspective: 1000px; }
+.hero-phone-side.right { perspective: 1000px; }
+
+.pure-phone {
+    height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8));
+    transition: var(--transition);
+}
+
+.hero-phone-side.left .pure-phone { transform: rotateY(15deg); }
+.hero-phone-side.right .pure-phone { transform: rotateY(-15deg); }
+
+.hero-center-hub {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-label {
+    margin-bottom: 40px;
+}
+
+.hero-screen-overlay {
+    width: 300px;
+    transform: rotate(-2deg);
+    box-shadow: 0 0 40px rgba(148, 175, 19, 0.4);
+}
+
+.nokia-screen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+/* Floating Phones */
+.floating-phone {
+    position: absolute;
+    height: 500px;
+    object-fit: contain;
+    z-index: 5;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.nokia-screen {
+    background-color: var(--nokia-bg);
+    color: var(--nokia-text);
+    padding: 20px;
+    border: 3px solid #111;
+    border-radius: 4px;
+    box-shadow: 
+        inset 0 0 30px rgba(0,0,0,0.3),
+        0 0 15px rgba(148, 175, 19, 0.4);
+    position: relative;
+    font-family: var(--font-pixel);
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 4/3;
+    width: 320px;
+    z-index: 10;
+    margin: 0 auto;
+}
+
+/* Buttons Aggressive */
+.btn-aggressive {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--nokia-green);
+    color: var(--bg-deep);
+    text-decoration: none;
+    font-family: var(--font-pixel);
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.1s;
+    border: 2px solid var(--nokia-green);
+}
+
+.btn-aggressive:hover {
+    background: transparent;
+    color: var(--nokia-green);
+    box-shadow: 0 0 20px var(--nokia-green);
+}
+
+/* Booking Section Specific Styles */
+/* --- Functional Nokia Handset --- */
+.nokia-handset {
+    background: radial-gradient(circle at 50% -20%, #20315a, #141d33);
+    width: 380px;
+    padding: 20px 25px 45px;
+    border-radius: 40px 40px 80px 80px;
+    border: 3px solid #050810;
+    box-shadow: 
+        0 50px 100px rgba(0,0,0,0.9),
+        0 0 40px rgba(30, 43, 74, 0.4),
+        inset 0 1px 3px rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    user-select: none;
+}
+
+.handset-top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 15px;
+    color: var(--nokia-text);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    opacity: 0.6;
+}
+
+.screen-container {
+    background: #444a57;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    margin-bottom: 25px;
+    border: 2px solid #222;
+    box-shadow: 
+        inset 0 2px 5px rgba(0,0,0,0.5),
+        0 1px 0 rgba(255,255,255,0.1);
+}
+
+.nokia-screen {
+    background-color: var(--nokia-bg);
+    color: var(--nokia-text);
+    width: 100%;
+    aspect-ratio: 4/3;
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-pixel);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.1);
+}
+
+.nokia-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.05) 50%,
+        transparent 50%
+    );
+    background-size: 100% 4px;
+    animation: scanlines-scroll 8s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes scanlines-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+
+.nokia-screen::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.08) 0px,
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+/* Control Buttons (Detailed D-Pad) */
+.controls-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.d-pad-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.d-pad-mid {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.phys-btn {
+    background: linear-gradient(#3a4a75, #141d33);
+    border: 1px solid #2a3654;
+    border-radius: 8px;
+    box-shadow: 0 5px 0 #050810;
+    cursor: pointer;
+    transition: all 0.1s;
+    color: #cbd5e1;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.phys-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #070a14;
+}
+
+.d-btn { width: 50px; height: 35px; font-size: 0.9rem; }
+.btn-up { border-radius: 15px 15px 4px 4px; }
+.btn-down { border-radius: 4px 4px 15px 15px; }
+.btn-left { border-radius: 15px 4px 4px 15px; }
+.btn-right { border-radius: 4px 15px 15px 4px; }
+
+.btn-ok { 
+    width: 60px; 
+    height: 50px; 
+    background: radial-gradient(circle at 30% 30%, #445588, #2a3654); 
+    color: #fff; 
+    font-weight: bold; 
+    border-color: #445588; 
+    box-shadow: 0 4px 0 #0a0e1a, 0 0 15px rgba(68, 85, 136, 0.5);
+    border-radius: 6px;
+}
+
+.action-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+}
+
+.act-btn { 
+    flex: 1; 
+    height: 45px; 
+    font-size: 0.7rem; 
+    letter-spacing: 2px; 
+    border-radius: 20px; 
+    background: linear-gradient(#1e2b4a, #0a1121);
+}
+
+.call-btn-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #1e2b4a, #000);
+    border: 2px solid #334366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #25d366;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 10px rgba(37, 211, 102, 0.2);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.call-btn-circle:hover {
+    transform: scale(1.05);
+    border-color: #25d366;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 15px rgba(37, 211, 102, 0.4);
+}
+
+/* Number Pad */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.key-btn {
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.key-btn span {
+    font-size: 0.5rem;
+    opacity: 0.5;
+    margin-top: -2px;
+}
+
+.key-btn.clr { color: var(--accent-red); font-size: 0.8rem; }
+
+/* Handset Branding */
+.handset-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
+/* Override existing booking container */
+.booking-nokia-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.pixel-text-mini { font-size: 1.8rem; line-height: 0.8; margin-bottom: 5px; }
+.pixel-text-micro { font-size: 0.8rem; opacity: 0.7; letter-spacing: 1.5px; }
+.pixel-text-mini-pricing { font-size: 1.4rem; border-bottom: 1px dotted var(--nokia-text); }
+
+.aggro-cta-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.aggro-pixel-btn {
+    background: #000;
+    border: 2px solid var(--nokia-green);
+    color: var(--nokia-green);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.aggro-pixel-btn:hover {
+    background: var(--nokia-green);
+    color: #000;
+}
+
+.aggro-pixel-btn.whatsapp { border-color: #25d366; color: #25d366; }
+.aggro-pixel-btn.whatsapp:hover { background: #25d366; color: #000; }
+
+.pixel-menu-interactive {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.pixel-menu-interactive li {
+    font-size: 1.1rem;
+    padding: 4px 10px;
+    margin-bottom: 2px;
+    border-bottom: 1px dotted rgba(42, 52, 10, 0.2);
+    cursor: pointer;
+    transition: 0.1s;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.pixel-menu-interactive li.active {
+    background-color: var(--nokia-text);
+    color: var(--nokia-bg);
+    animation: blink 0.4s infinite;
+}
+
+/* Secondary Screen UI */
+.pixel-list {
+    list-style: none;
+    width: 100%;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.pixel-list li {
+    font-size: 1rem;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(42, 52, 10, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.pixel-dialer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.avatar-mini { font-size: 2.5rem; }
+
+.aggro-cta-group-mini {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.pixel-mini-btn {
+    background: var(--nokia-text);
+    color: var(--nokia-bg);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+.pixel-mini-btn:hover {
+    background: #000;
+    color: var(--nokia-green);
+}
+
+.pixel-contact {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 1.5px solid var(--nokia-text);
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.screen-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.screen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    border-top: 2px solid var(--nokia-text);
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
+.center-btn { width: 10px; height: 10px; background: var(--nokia-text); border-radius: 2px; }
+
+/* Rates Section */
+.rates-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rate-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    border-bottom: 1px dotted var(--nokia-text);
+}
+
+.section-label-alt {
+    flex: 1;
+}
+
+.rates-centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.system-hub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.brand-text {
+    font-weight: 900;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    color: #4b6399;
+    text-shadow: 0 0 10px rgba(75, 99, 153, 0.3);
+}
+
+.signal-bars {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Footer Section */
+.footer-gritty {
+    background-color: #000;
+    padding: 60px 0 30px;
+}
+
+.footer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.socials {
+    display: flex;
+    gap: 30px;
+}
+
+.socials a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.footer-row-top { display: flex; justify-content: space-between; align-items: end; }
+
+.footer-row-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.contact-details { display: flex; gap: 20px; }
+
+/* Animations */
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(148, 175, 19, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(148, 175, 19, 0.6); }
+}
+
+.pulse-glow { animation: pulse-glow 2s infinite ease-in-out; }
+
+[data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s ease-out;
+}
+
+[data-animate].active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.badge {
+    background: var(--accent-red);
+    color: #fff;
+    padding: 3px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Responsive Hacks */
+@media (max-width: 1024px) {
+    .hero-layers {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+    }
+    
+    .hero-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .aggressive-title { font-size: 4.5rem; }
+    
+    .nokia-main-wrapper { height: auto; padding: 100px 0; }
+    .phone-1, .phone-2 { display: none; }
+}
+
+@media (max-width: 768px) {
+    .mobile-stack, .mobile-stack.reverse {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .aggressive-title { font-size: 3.5rem; letter-spacing: -1px; }
+}
